@@ -1,0 +1,16 @@
+<ion-view title="Commentaires">
+  <ion-content>
+    <ion-list >
+      <ion-item  class="item-text-wrap" ng-repeat="com in comments">
+        {{com.fromUser.displayName}} says : <p>{{com.message}}</p>
+        <a ng-if="com.fromUser.id === currentUser.id " ng-click="deleteCom(com)" class="ion-ios-trash"></a>
+      </ion-item>
+    </ion-list>
+    <a ng-href="#\root\accueil" style="position: absolute; "> <span style="font-size: 32px; " class="ion-android-arrow-back"></span></a>
+
+  </ion-content>
+  <ion-footer-bar keyboard-attach>
+    <input type="text" name="messagePost" ng-model="messagePost" placeholder="Message" style="width: 100%" >
+    <button ng-click="postCommentaire(idPost)">Post</button>
+  </ion-footer-bar>
+</ion-view>

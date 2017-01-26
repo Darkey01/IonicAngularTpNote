@@ -1,0 +1,28 @@
+<ion-view title="Fil Actualité">
+  <ion-content>
+    <ion-refresher pulling-text="Pull to refresh." on-refresh="doRefresh()">
+    </ion-refresher>
+    <div ng-repeat="item in posts" href="#/{{item.id}}" class="list card">
+
+      <div class="item item-avatar">
+        <img ng-src="{{ item.user.profilePictureURL}}">
+        <h2>{{item.user.displayName}}</h2>
+        <p>{{item.createdAt | date}}</p>
+      </div>
+
+      <div class="item item-body">
+        <img class="full-image" ng-src="{{item.imageURL}}">
+        <p>
+          {{item.message}}
+        </p>
+        <p>
+          <a ng-if="item.likedByCurrentUser" ng-click="dislike(item.id)"><span class="ion-heart" style="color: red; font-size: 24px"></span></a>
+          <a ng-if="!item.likedByCurrentUser" ng-click="like(item.id)"><span class="ion-heart" style="color: black; font-size: 24px"></span></a>
+          <a href="#/root/like/{{item.id}}" class="subdued">{{item.likesCount}}  Like</a>
+          <a href="#/root/comment/{{item.id}}" class="subdued">{{item.commentsCount}} Comments</a>
+        </p>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

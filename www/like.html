@@ -1,0 +1,11 @@
+<ion-view title="Commentaires">
+  <ion-content>
+    <ion-list >
+      <ion-item ng-repeat="like in likes" style="overflow-y: visible">
+        {{like.fromUser.createdAt | date}} : {{like.fromUser.displayName}} as Like
+
+      </ion-item>
+    </ion-list>
+    <a ng-href="#\root\accueil" style="width: 100%; " class="button "> <span style="font-size: 32px; " class="ion-android-arrow-back"></span></a>
+  </ion-content>
+</ion-view>
